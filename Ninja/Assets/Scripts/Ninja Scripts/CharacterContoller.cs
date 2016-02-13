@@ -13,22 +13,11 @@ public class CharacterContoller : MonoBehaviour {
 	private bool facingRight = true;
 	private float h;
 	private bool touchedScroll = false;
-
 	private bool disableControl = false;
-
-	private float timer= 0;
-
-
 
 	void Awake(){
 		anim = GetComponent<Animator> ();
 	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-
 
 	public void Die(){
 		Destroy (this.gameObject);
@@ -42,14 +31,12 @@ public class CharacterContoller : MonoBehaviour {
 		{
 			grounded = true;
 			anim.SetBool ("PressJump", false);
-
 		}
 
 		if( (Input.GetButtonDown( "Jump" ) || Input.GetAxis ("Vertical") > 0) && grounded  ){
 			jump = true;
 		}
 
-	
 	}
 
 
@@ -77,8 +64,10 @@ public class CharacterContoller : MonoBehaviour {
 					facingRight = true;
 					flip ();
 				}
-
 			}
+
+
+
 			if (h < 0) {
 				anim.SetFloat ("speed", -1);
 
